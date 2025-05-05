@@ -4,8 +4,8 @@ import Exam from '../models/exam.model';
 
 export const createUser = async (req: Request, res: Response) => {
     try{
-        const { name, level } = req.body;
-        const user = await User.create({ name, level });
+        const { name, level, matricule } = req.body;
+        const user = await User.create({ name, level, matricule });
         res.status(201).json(user);
     }catch(error){
         console.log("Error while trying to create user", error)
