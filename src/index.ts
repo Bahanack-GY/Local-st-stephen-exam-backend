@@ -14,29 +14,29 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 5000;
 
-const allowedOrigins = [
-    "http://localhost:3030", 
-    "http://192.168.16.105:3000", 
-    "http://192.168.16.105:7070", 
-    "http://192.168.16.105:3030", 
-  ];
+// const allowedOrigins = [
+//     "http://localhost:3030", 
+//     "http://192.168.16.105:3000", 
+//     "http://192.168.16.105:7070", 
+//     "http://192.168.16.105:3030", 
+//   ];
 
-// Middleware
-app.use(
-    cors({
-      origin: (origin, callback) => {
-        // Check if the origin is in the allowed list or is undefined (for non-browser requests)
-        if (!origin || allowedOrigins.includes(origin)) {
-          callback(null, true); // Allow the request
-        } else {
-          callback(new Error("Not allowed by CORS")); // Block the request
-        }
-      },
-      credentials: true, // Allow cookies and credentials
+// // Middleware
+// app.use(
+//     cors({
+//       origin: (origin, callback) => {
+//         // Check if the origin is in the allowed list or is undefined (for non-browser requests)
+//         if (!origin || allowedOrigins.includes(origin)) {
+//           callback(null, true); // Allow the request
+//         } else {
+//           callback(new Error("Not allowed by CORS")); // Block the request
+//         }
+//       },
+//       credentials: true, // Allow cookies and credentials
       
-    })
-  );
-  
+//     })
+//   );
+app.use(cors());
 // Middleware for parsing JSON and URL-encoded data
 app.use(express.json({ limit: "10mb" })); // Adjust the limit as needed
 app.use(bodyParser.json({ limit: "10mb" }));
