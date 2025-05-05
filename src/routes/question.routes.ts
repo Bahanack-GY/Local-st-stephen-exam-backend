@@ -1,5 +1,5 @@
 import express from 'express';
-import { getQuestions, addQuestion, addBulkQuestions } from '../controllers/question.controller';
+import { getQuestions, addQuestion, addBulkQuestions, uploadImage } from '../controllers/question.controller';
 
 const router = express.Router();
 
@@ -11,6 +11,9 @@ router.post('/', addQuestion);
 
 // Add multiple questions
 router.post('/bulk', addBulkQuestions);
+
+// Upload image
+router.post('/upload-image', uploadImage);
 
 export default router;
 

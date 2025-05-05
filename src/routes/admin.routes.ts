@@ -13,6 +13,6 @@ router.get('/class/:classId', getClassStudents);
 router.get('/statistics/:level', getStudentStatistics);
 
 // Get all students
-router.get('/students', getStudents);
+    router.get('/students/:level', getStudents);
 
 export default router;

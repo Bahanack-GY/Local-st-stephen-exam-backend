@@ -5,6 +5,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    matricule:{
+        type: String,
+        unique: true,
+        required: true,
+        default : ""
+    },
     score:{
         type:Number,
         default:0

@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
+import path from 'path';
 import userRoutes from './routes/user.routes';
 import questionRoutes from './routes/question.routes';
 import examRoutes from './routes/exam.routes';
@@ -22,7 +23,9 @@ const allowedOrigins = [
     "http://192.168.16.105:5050",   
     "http://localhost:7070",
     "http://localhost:5173", 
-    "http://192.168.1.89:7070" 
+    "http://192.168.1.89:7070", 
+    "http://192.168.1.92:7070", 
+    "http://10.32.209.174:5173", 
 
   ];
 
@@ -56,8 +59,9 @@ app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/questions', questionRoutes);
 app.use('/api/v1/exams', examRoutes);
 app.use('/api/v1/admin', adminRoutes);
-// app.use('/api/v1/admin', adminRoutes);
 
+// Serve static files from the public directory
+app.use('/public', express.static(path.join(__dirname, '../public')));
 
 // Database connection
 mongoose

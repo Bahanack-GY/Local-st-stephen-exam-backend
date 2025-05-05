@@ -60,7 +60,10 @@ export const getStudentStatistics = async (req: Request, res: Response) => {
 
 export const getStudents = async (req: Request, res: Response) => {
     try{
-        const students = await User.find();
+        const {level} = req.params;
+        console.log("level", level)
+        const students = await User.find({level: level});
+        console.log("students", students)
         res.status(200).json(students);
     }catch(error){
         console.error("Error getting students")
