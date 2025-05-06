@@ -14,17 +14,16 @@ const examSchema = new Schema({
     title: {
         type: String,
         required: true,
-        trim: true
     },
     subject: {
         type: String,
         required: true,
-        trim: true
+
     },
     level: {
         type: String,
         required: true,
-        trim: true
+
     },
     questions: [{
         type: Schema.Types.ObjectId,

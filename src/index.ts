@@ -20,6 +20,9 @@ const allowedOrigins = [
     "http://192.168.16.105:7070", 
     "http://192.168.16.105:3030", 
     "http://192.168.16.105:5050",
+    "http://192.168.16.105:5173",
+    "http://localhost:5173",
+    "http://localhost:7070",
   ];
 
 // Middleware
